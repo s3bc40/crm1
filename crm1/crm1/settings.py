@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # import applications here
-    'accounts',
+    'accounts.apps.AccountsConfig',
     'django_filters',
 ]
 
