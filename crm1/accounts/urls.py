@@ -21,8 +21,19 @@ urlpatterns = [
     path('update_order/<int:pk>/', views.updateOrder, name='update_order'),    
     path('delete_order/<int:pk>/', views.deleteOrder, name='delete_order'),
 
-    path('reset_password/', auth_views.PasswordResetView.as_view(), name='reset_password'), # form for submit email
-    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'), # message success sent email to change password
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'), # link in email to submit their password
-    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'), # password successfully changed
+    path('reset_password/', 
+        auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'), 
+        name='reset_password'), # form for submit email
+    
+    path('reset_password_sent/',
+        auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_sent.html'), 
+        name='password_reset_done'), # message success sent email to change password
+    
+    path('reset/<uidb64>/<token>/', 
+        auth_views.PasswordResetConfirmView.as_view(template_name='accounts/password_reset_form.html'), 
+        name='password_reset_confirm'), # link in email to submit their password
+    
+    path('reset_password_complete/', 
+        auth_views.PasswordResetCompleteView.as_view(template_name='accounts/password_reset_done.html'), 
+        name='password_reset_complete'), # password successfully changed
 ]
