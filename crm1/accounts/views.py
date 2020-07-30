@@ -13,6 +13,7 @@ from .forms import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
+
 @unauthenticated_user
 def registerPage(request):
     form = CreateUserForm()
@@ -21,14 +22,6 @@ def registerPage(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-            
-            group = Group.objects.get(name='customer')
-            user.groups.add(group)
-            Customer.objects.create(
-                user=user,
-                name=user.username,
-                email=user.email,
-            )
 
             messages.success(request, 'Account was created for ' + username)
             return redirect('login')
