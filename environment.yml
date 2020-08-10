@@ -33,8 +33,19 @@ dependencies:
   - xz=5.2.5=h7b6447c_0
   - zlib=1.2.11=h7b6447c_3
   - pip:
+    - boto3==1.14.37
+    - botocore==1.17.37
     - django==3.0.8
+    - django-filter==2.3.0
+    - django-storages==1.9.1
+    - docutils==0.15.2
+    - jmespath==0.10.0
+    - pillow==7.2.0
+    - psycopg2==2.8.5
     - pylint-django==2.0.15
     - pylint-plugin-utils==0.6
+    - python-dateutil==2.8.1
+    - s3transfer==0.3.3
+    - urllib3==1.25.10
 prefix: /home/s3bc40/anaconda3/envs/django_management
 
