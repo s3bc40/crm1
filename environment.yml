@@ -3,33 +3,22 @@ channels:
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
-  - asgiref=3.2.7=py_0
-  - astroid=2.4.2=py38_0
   - ca-certificates=2020.6.24=0
   - certifi=2020.6.20=py38_0
-  - isort=4.3.21=py38_0
-  - lazy-object-proxy=1.4.3=py38h7b6447c_0
   - ld_impl_linux-64=2.33.1=h53a641e_7
-  - libedit=3.1.20191231=h7b6447c_0
+  - libedit=3.1.20191231=h14c3975_1
   - libffi=3.3=he6710b0_2
   - libgcc-ng=9.1.0=hdf63c60_0
   - libstdcxx-ng=9.1.0=hdf63c60_0
-  - mccabe=0.6.1=py38_1
   - ncurses=6.2=he6710b0_1
   - openssl=1.1.1g=h7b6447c_0
-  - pip=20.1.1=py38_1
-  - pylint=2.5.3=py38_0
-  - python=3.8.3=hcff3b4d_2
-  - pytz=2020.1=py_0
+  - pip=20.2.1=py38_0
+  - python=3.8.5=hcff3b4d_0
   - readline=8.0=h7b6447c_0
-  - setuptools=47.3.1=py38_0
-  - six=1.15.0=py_0
+  - setuptools=49.2.1=py38_0
   - sqlite=3.32.3=h62c20be_0
-  - sqlparse=0.3.1=py_0
   - tk=8.6.10=hbc83047_0
-  - toml=0.10.1=py_0
   - wheel=0.34.2=py38_0
-  - wrapt=1.11.2=py38h7b6447c_0
   - xz=5.2.5=h7b6447c_0
   - zlib=1.2.11=h7b6447c_3
   - pip:
@@ -37,15 +26,19 @@ dependencies:
     - botocore==1.17.37
     - django==3.0.8
     - django-filter==2.3.0
+    - django-heroku==0.3.1
     - django-storages==1.9.1
     - docutils==0.15.2
+    - gunicorn==20.0.4
     - jmespath==0.10.0
     - pillow==7.2.0
     - psycopg2==2.8.5
     - pylint-django==2.0.15
     - pylint-plugin-utils==0.6
     - python-dateutil==2.8.1
+    - pytz==2020.1
     - s3transfer==0.3.3
     - urllib3==1.25.10
+    - whitenoise==5.2.0
 prefix: /home/s3bc40/anaconda3/envs/django_management
 
