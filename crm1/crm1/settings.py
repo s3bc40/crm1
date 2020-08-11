@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+import environ
+
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,11 +30,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['s3bc40-dj-crm.herokuapp.com', '127.0.0.1', ]
 
@@ -89,7 +97,7 @@ WSGI_APPLICATION = 'crm1.wsgi.application'
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'demo_1',
 #         'USER': 's3bc40',
-#         'PASSWORD': os.environ['DB_PWD'],
+#         'PASSWORD': env('DB_PWD'),
 #         'HOST': 'database-1.c91jq9imtdzt.us-east-2.rds.amazonaws.com',
 #         'PORT': '5432'
 #     }
@@ -154,12 +162,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER_HOST', '')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_USER_PWD', '')
+EMAIL_HOST_USER = env('SECRET_KEY')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 # # AWS BUCKET
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 # AWS_STORAGE_BUCKET_NAME = "s3bc40-bucket"
 
 # AWS_S3_FILE_OVERWRITE = False
